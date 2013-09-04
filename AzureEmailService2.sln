@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "AzureEmailService2", "AzureEmailService2\AzureEmailService2.ccproj", "{A494A8B9-CB0E-41EC-A259-79F00FB4BE18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcWebRole", "MvcWebRole\MvcWebRole.csproj", "{239E67D7-E04D-4BC3-B4AE-9BE5BF0D8100}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkerRoleA", "WorkerRoleA\WorkerRoleA.csproj", "{014D056F-ABF2-411B-A7C7-B4C8D444B157}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{F9BF5959-F191-45B0-B6CE-48AAC58F07BB}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A494A8B9-CB0E-41EC-A259-79F00FB4BE18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A494A8B9-CB0E-41EC-A259-79F00FB4BE18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A494A8B9-CB0E-41EC-A259-79F00FB4BE18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A494A8B9-CB0E-41EC-A259-79F00FB4BE18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{239E67D7-E04D-4BC3-B4AE-9BE5BF0D8100}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{239E67D7-E04D-4BC3-B4AE-9BE5BF0D8100}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{239E67D7-E04D-4BC3-B4AE-9BE5BF0D8100}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{239E67D7-E04D-4BC3-B4AE-9BE5BF0D8100}.Release|Any CPU.Build.0 = Release|Any CPU
+		{014D056F-ABF2-411B-A7C7-B4C8D444B157}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{014D056F-ABF2-411B-A7C7-B4C8D444B157}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{014D056F-ABF2-411B-A7C7-B4C8D444B157}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{014D056F-ABF2-411B-A7C7-B4C8D444B157}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
