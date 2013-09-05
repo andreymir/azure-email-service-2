@@ -45,6 +45,7 @@ namespace MvcWebRole.Controllers
         // POST: /MailingList/Create
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(MailingList mailingList)
         {
             if (ModelState.IsValid)
@@ -56,31 +57,32 @@ namespace MvcWebRole.Controllers
             return View(mailingList);
         }
 
-        ////
-        //// GET: /MailingList/Edit/5
+        //
+        // GET: /MailingList/Edit/5
 
-        //public ActionResult Edit(int id)
-        //{
-        //    return View();
-        //}
+        public ActionResult Edit(string id)
+        {
+            var mailingList = _mailingListRepository.GetMailingListByName(id);
+            return View(mailingList);
+        }
 
-        ////
-        //// POST: /MailingList/Edit/5
+        //
+        // POST: /MailingList/Edit/5
 
-        //[HttpPost]
-        //public ActionResult Edit(int id, FormCollection collection)
-        //{
-        //    try
-        //    {
-        //        // TODO: Add update logic here
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(string id, MailingList editedMailingList)
+        {
+            if (ModelState.IsValid)
+            {
+                var mailingList=new MailingList();
+                UpdateModel(mailingList);
+                _mailingListRepository.UpdateMailingList(id, mailingList);
+                return RedirectToAction("Index");
+            }
 
-        //        return RedirectToAction("Index");
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
+            return View(editedMailingList);
+        }
 
         ////
         //// GET: /MailingList/Delete/5

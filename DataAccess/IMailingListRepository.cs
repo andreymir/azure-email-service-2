@@ -11,5 +11,9 @@ namespace DataAccess
         IEnumerable<MailingList> ListMailingLists();
 
         void AddMailingList(MailingList mailingList);
+
+        MailingList GetMailingListByName(string listName);
+
+        void UpdateMailingList(string listName, MailingList mailingList);
     }
 }

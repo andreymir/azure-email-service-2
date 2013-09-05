@@ -61,5 +61,44 @@ namespace DataAccess
             var insertOperation = TableOperation.Insert(tableObject);
             _mailingListTable.Value.Execute(insertOperation);
         }
+
+        public MailingList GetMailingListByName(string listName)
+        {
+            const string rowKey = "mailinglist";
+            var tableObject = FindRow(listName, rowKey);
+
+            if (tableObject == null)
+            {
+                return null;
+            }
+
+            return new MailingList
+            {
+                Description = tableObject.Description,
+                FromEmailAddress = tableObject.FromEmailAddress,
+                ListName = tableObject.PartitionKey
+            };
+        }
+
+        public void UpdateMailingList(string listName, MailingList mailingList)
+        {
+            var tableObject = new Table.MailingList
+            {
+                Description = mailingList.Description,
+                FromEmailAddress = mailingList.FromEmailAddress,
+                RowKey = "mailinglist",
+                PartitionKey = listName,
+                ETag = "*"
+            };
+            var replaceOperation = TableOperation.Replace(tableObject);
+            _mailingListTable.Value.Execute(replaceOperation);
+        }
+
+        private Table.MailingList FindRow(string partitionKey, string rowKey)
+        {
+            var retrieveOperation = TableOperation.Retrieve<Table.MailingList>(partitionKey, rowKey);
+            var retrievedResult = _mailingListTable.Value.Execute(retrieveOperation);
+            return retrievedResult.Result as Table.MailingList;
+        }
     }
 }
