@@ -94,6 +94,34 @@ namespace DataAccess
             _mailingListTable.Value.Execute(replaceOperation);
         }
 
+        public void DeleteMailingList(string listName)
+        {
+            // Delete all rows for this mailing list, that is, 
+            // Subscriber rows as well as MailingList rows.
+            // Therefore, no need to specify row key.
+            var query = new TableQuery<Table.MailingList>()
+                .Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, listName));
+            var listRows = _mailingListTable.Value.ExecuteQuery(query).ToList();
+            var batchOperation = new TableBatchOperation();
+            var itemsInBatch = 0;
+            foreach (var listRow in listRows)
+            {
+                batchOperation.Delete(listRow);
+                itemsInBatch++;
+                if (itemsInBatch == 100)
+                {
+                    _mailingListTable.Value.ExecuteBatch(batchOperation);
+                    itemsInBatch = 0;
+                    batchOperation = new TableBatchOperation();
+                }
+            }
+
+            if (itemsInBatch > 0)
+            {
+                _mailingListTable.Value.ExecuteBatch(batchOperation);
+            }
+        }
+
         private Table.MailingList FindRow(string partitionKey, string rowKey)
         {
             var retrieveOperation = TableOperation.Retrieve<Table.MailingList>(partitionKey, rowKey);

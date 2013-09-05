@@ -1,0 +1,36 @@
+﻿@model DataAccess.MailingList
+
+@{
+    ViewBag.Title = "Mailing list details";
+}
+
+<h2>@Model.ListName details</h2>
+
+<fieldset>
+    <legend>Mailing list</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ListName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ListName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FromEmailAddress)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FromEmailAddress)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ListName }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

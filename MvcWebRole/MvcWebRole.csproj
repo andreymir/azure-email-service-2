@@ -212,6 +212,12 @@
   <ItemGroup>
     <Content Include="Views\MailingList\Edit.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\MailingList\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\MailingList\Delete.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

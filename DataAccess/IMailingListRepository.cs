@@ -15,5 +15,7 @@ namespace DataAccess
         MailingList GetMailingListByName(string listName);
 
         void UpdateMailingList(string listName, MailingList mailingList);
+        
+        void DeleteMailingList(string listName);
     }
 }
