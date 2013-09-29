@@ -4,12 +4,12 @@
     ViewBag.Title = "Mailing Lists";
 }
 
-<h2>Mailing lists</h2>
+<h1>Mailing lists</h1>
 
 <p>
-    @Html.ActionLink("Create new list", "Create")
+    @Html.ActionLink("Create new list", "Create", null, new { @class="btn btn-primary" })
 </p>
-<table>
+<table class="table table-striped">
     <thead>
         <tr>
             <th>
@@ -38,9 +38,9 @@
                     @Html.DisplayFor(modelItem => item.Description)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ListName }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ListName }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ListName })
+                    <a href="@Url.Action("Edit", new { id = item.ListName })"><span class="glyphicon glyphicon-pencil"></span></a> |
+                    <a href="@Url.Action("Delete", new { id = item.ListName })"><span class="glyphicon glyphicon-list-alt"></span></a> |
+                    <a href="@Url.Action("Delete", new { id = item.ListName })"><span class="glyphicon glyphicon-trash"></span></a>
                 </td>
             </tr>
         }
